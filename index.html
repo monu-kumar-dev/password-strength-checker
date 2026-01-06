@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Enter a password that contains</h2>
+        </div>
+
+        <div class="parentList">
+            <ul>
+                <li>At least 8 characters</li>
+                <li>At least 1 lowercase letter</li>
+                <li>At least 1 uppercase letter</li>
+                <li>At least 1 digit</li>
+                <li>At least 1 special character</li>
+            </ul>
+        </div>
+        <div class="password">
+            <input type="password" placeholder="password">
+        </div>
+
+        <div class="confirmPassword">
+            <input type="password" placeholder="confirm Password">
+            <p class="not-match">Passwords do not match</p>
+        </div>
+
+        <div class="progress weak">
+            <input type="range" class="range" min="0" max="100" value="30">
+            <p class="text">Weak</p>
+        </div>
+
+
+        <div class="submitBtn">
+            <button type="submit">submit</button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
