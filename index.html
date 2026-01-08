@@ -2,47 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Password Strength Checker</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+
     <div class="container">
-        <div class="header">
-            <h2>Enter a password that contains</h2>
+        <h2>Create Password</h2>
+
+        <ul class="rules">
+            <li id="len">❌ At least 8 characters</li>
+            <li id="low">❌ One lowercase letter</li>
+            <li id="up">❌ One uppercase letter</li>
+            <li id="num">❌ One number</li>
+            <li id="sp">❌ One special character</li>
+        </ul>
+
+        <div class="field">
+            <input type="password" id="password" placeholder="Password" />
+            <span class="toggle" onclick="togglePass('password')">👁</span>
         </div>
 
-        <div class="parentList">
-            <ul>
-                <li>At least 8 characters</li>
-                <li>At least 1 lowercase letter</li>
-                <li>At least 1 uppercase letter</li>
-                <li>At least 1 digit</li>
-                <li>At least 1 special character</li>
-            </ul>
-        </div>
-        <div class="password">
-            <input type="password" id="mainPassword" placeholder="password">
+        <div class="field">
+            <input type="password" id="confirm" placeholder="Confirm Password" />
+            <span class="toggle" onclick="togglePass('confirm')">👁</span>
+            <p class="error">Passwords do not match</p>
         </div>
 
-        <div class="confirmPassword">
-            <input type="password" id="confirmPassword" placeholder="confirm Password">
-            <p class="not-match">Passwords do not match</p>
+        <div class="progress">
+            <div class="bar"></div>
+            <span class="text">Weak</span>
         </div>
 
-        <div class="progress weak">
-            <input type="range" class="range" min="0" max="100" value="30">
-            <p class="text">Weak</p>
-        </div>
-
-
-        <div class="submitBtn">
-            <button type="submit">submit</button>
-        </div>
+        <button disabled>Create Account</button>
     </div>
-    <script src="./script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
