@@ -1,167 +1,127 @@
-/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: system-ui, sans-serif;
 }
 
-/* ================= BODY ================= */
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #eef2ff, #fdf2f8);
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Arial, sans-serif;
-  color: #1f2937;
+  justify-content: center;
 }
 
-/* ================= CONTAINER ================= */
 .container {
-  width: 100%;
-  max-width: 360px;
-  padding: 20px;
-  background: #ffffff;
+  background: #fff;
+  padding: 25px;
+  width: 360px;
   border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* ================= HEADER ================= */
-.header {
-  font-size: 18px;
-  font-weight: 700;
+h2 {
   text-align: center;
-  color: #4338ca;
+  margin-bottom: 15px;
+  color: #4f46e5;
 }
 
-/* ================= INPUT GROUP ================= */
-.password,
-.confirmPassword {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.rules {
+  font-size: 13px;
+  margin-bottom: 15px;
+  color: #6b7280;
 }
 
-/* ================= INPUT ================= */
+.rules li.valid {
+  color: #16a34a;
+}
+
+.field {
+  position: relative;
+  margin-bottom: 12px;
+}
+
 input {
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  font-size: 14px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
   background: #f9fafb;
-  transition: all 0.25s ease;
 }
 
 input:focus {
   outline: none;
   border-color: #6366f1;
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
 }
 
-/* ================= PASSWORD RULE LIST ================= */
-.parentList {
-  margin-left: 18px;
-  font-size: 13px;
-  color: #6b7280;
-}
-
-/* ================= PROGRESS ================= */
-.progress {
-  width: 100%;
-  position: relative;
-  margin-top: 10px;
-}
-
-/* RANGE BASE */
-.range {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 100%;
-  height: 8px;
-  border-radius: 20px;
-  background: #e5e7eb;
-  pointer-events: none;
-}
-
-/* TRACK */
-.range::-webkit-slider-runnable-track {
-  height: 8px;
-  border-radius: 20px;
-}
-
-/* REMOVE THUMB */
-.range::-webkit-slider-thumb {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 0;
-  height: 0;
-}
-
-/* TEXT */
-.text {
+.toggle {
   position: absolute;
-  right: 8px;
-  top: -22px;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.error {
+  font-size: 12px;
+  color: #dc2626;
+  display: none;
+}
+
+.progress {
+  margin: 15px 0;
+  position: relative;
+}
+
+.bar {
+  height: 18px;
+  border-radius: 10px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.bar::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 0;
+  background: red;
+  transition: 0.3s;
+}
+
+.progress.weak .bar::after {
+  width: 30%;
+  background: #f87171;
+}
+
+.progress.medium .bar::after {
+  width: 60%;
+  background: #fbbf24;
+}
+
+.progress.strong .bar::after {
+  width: 100%;
+  background: #34d399;
+}
+
+.text {
   font-size: 13px;
   font-weight: 600;
 }
 
-/* 🔴 WEAK (SOFT RED) */
-.progress.weak .range {
-  background: linear-gradient(to right, #f87171 30%, #e5e7eb 30%);
-}
-.progress.weak .text {
-  color: #ef4444;
-}
-
-/* 🟡 MEDIUM (SOFT ORANGE) */
-.progress.medium .range {
-  background: linear-gradient(to right, #fbbf24 60%, #e5e7eb 60%);
-}
-.progress.medium .text {
-  color: #f59e0b;
-}
-
-/* 🟢 STRONG (SOFT GREEN) */
-.progress.strong .range {
-  background: linear-gradient(to right, #34d399 100%, #e5e7eb 0%);
-}
-.progress.strong .text {
-  color: #10b981;
-}
-
-/* ================= BUTTON ================= */
-.submitBtn {
-  margin-top: 14px;
-  display: flex;
-  justify-content: center;
-}
-
-.submitBtn button {
-  padding: 12px 40px;
-  font-size: 15px;
-  font-weight: 600;
+button {
+  width: 100%;
+  padding: 12px;
   border-radius: 999px;
   border: none;
-  color: #fff;
   background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  opacity: 0.6;
 }
 
-/* HOVER */
-.submitBtn button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
-}
-
-/* ACTIVE */
-.submitBtn button:active {
-  transform: translateY(0);
-  box-shadow: 0 5px 12px rgba(99, 102, 241, 0.25);
+button:enabled {
+  opacity: 1;
 }
