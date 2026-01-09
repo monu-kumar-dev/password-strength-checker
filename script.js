@@ -57,6 +57,10 @@ function check() {
   }
 }
 
+function togglePass(id) {
+  const input = document.getElementById(id);
+  input.type = input.type === "password" ? "text" : "password";
+}
 
 pass.addEventListener("input", check);
 confirmPass.addEventListener("input", check);
